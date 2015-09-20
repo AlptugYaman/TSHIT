@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TShitModelStoreContainer" CdmEntityContainer="TShitEntities">
+    <EntitySetMapping Name="Kullanici">
+      <EntityTypeMapping TypeName="TShitModel.Kullanici">
+        <MappingFragment StoreEntitySet="Kullanici">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="adsoyad" ColumnName="adsoyad" />
+          <ScalarProperty Name="kullaniciadi" ColumnName="kullaniciadi" />
+          <ScalarProperty Name="sifre" ColumnName="sifre" />
+          <ScalarProperty Name="yetkiId" ColumnName="yetkiId" />
+          <ScalarProperty Name="il" ColumnName="il" />
+          <ScalarProperty Name="ilce" ColumnName="ilce" />
+          <ScalarProperty Name="adres" ColumnName="adres" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="silindi" ColumnName="silindi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Satis">
+      <EntityTypeMapping TypeName="TShitModel.Satis">
+        <MappingFragment StoreEntitySet="Satis">
+          <ScalarProperty Name="satisId" ColumnName="satisId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="urunId" ColumnName="urunId" />
+          <ScalarProperty Name="tarih" ColumnName="tarih" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Urunler">
+      <EntityTypeMapping TypeName="TShitModel.Urunler">
+        <MappingFragment StoreEntitySet="Urunler">
+          <ScalarProperty Name="urunId" ColumnName="urunId" />
+          <ScalarProperty Name="urunadi" ColumnName="urunadi" />
+          <ScalarProperty Name="urunkategori" ColumnName="urunkategori" />
+          <ScalarProperty Name="cinsiyet" ColumnName="cinsiyet" />
+          <ScalarProperty Name="adet" ColumnName="adet" />
+          <ScalarProperty Name="birimfiyat" ColumnName="birimfiyat" />
+          <ScalarProperty Name="beden" ColumnName="beden" />
+          <ScalarProperty Name="resimyolu1" ColumnName="resimyolu1" />
+          <ScalarProperty Name="resimyolu2" ColumnName="resimyolu2" />
+          <ScalarProperty Name="urunbilgisi" ColumnName="urunbilgisi" />
+          <ScalarProperty Name="silindi" ColumnName="silindi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Yetki">
+      <EntityTypeMapping TypeName="TShitModel.Yetki">
+        <MappingFragment StoreEntitySet="Yetki">
+          <ScalarProperty Name="yetkiId" ColumnName="yetkiId" />
+          <ScalarProperty Name="yetki1" ColumnName="yetki" />
+          <ScalarProperty Name="silindi" ColumnName="silindi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

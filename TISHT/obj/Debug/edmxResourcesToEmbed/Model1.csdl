@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TShitModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="TShitEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Kullanici" EntityType="TShitModel.Kullanici" />
+    <EntitySet Name="Satis" EntityType="TShitModel.Satis" />
+    <EntitySet Name="Urunler" EntityType="TShitModel.Urunler" />
+    <EntitySet Name="Yetki" EntityType="TShitModel.Yetki" />
+    <AssociationSet Name="FK_Kullanici_Yetki" Association="TShitModel.FK_Kullanici_Yetki">
+      <End Role="Yetki" EntitySet="Yetki" />
+      <End Role="Kullanici" EntitySet="Kullanici" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Satis_Kullanici" Association="TShitModel.FK_Satis_Kullanici">
+      <End Role="Kullanici" EntitySet="Kullanici" />
+      <End Role="Satis" EntitySet="Satis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Satis_Urunler" Association="TShitModel.FK_Satis_Urunler">
+      <End Role="Urunler" EntitySet="Urunler" />
+      <End Role="Satis" EntitySet="Satis" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Kullanici">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="adsoyad" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="kullaniciadi" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="sifre" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="false" />
+    <Property Name="yetkiId" Type="Int32" Nullable="false" />
+    <Property Name="il" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="ilce" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="adres" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="email" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="telefon" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+    <Property Name="silindi" Type="Boolean" />
+    <NavigationProperty Name="Yetki" Relationship="TShitModel.FK_Kullanici_Yetki" FromRole="Kullanici" ToRole="Yetki" />
+    <NavigationProperty Name="Satis" Relationship="TShitModel.FK_Satis_Kullanici" FromRole="Kullanici" ToRole="Satis" />
+  </EntityType>
+  <EntityType Name="Satis">
+    <Key>
+      <PropertyRef Name="satisId" />
+    </Key>
+    <Property Name="satisId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="urunId" Type="Int32" Nullable="false" />
+    <Property Name="tarih" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Kullanici" Relationship="TShitModel.FK_Satis_Kullanici" FromRole="Satis" ToRole="Kullanici" />
+    <NavigationProperty Name="Urunler" Relationship="TShitModel.FK_Satis_Urunler" FromRole="Satis" ToRole="Urunler" />
+  </EntityType>
+  <EntityType Name="Urunler">
+    <Key>
+      <PropertyRef Name="urunId" />
+    </Key>
+    <Property Name="urunId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="urunadi" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="urunkategori" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="cinsiyet" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="adet" Type="Int32" Nullable="false" />
+    <Property Name="birimfiyat" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="beden" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="resimyolu1" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="resimyolu2" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="urunbilgisi" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="silindi" Type="Boolean" />
+    <NavigationProperty Name="Satis" Relationship="TShitModel.FK_Satis_Urunler" FromRole="Urunler" ToRole="Satis" />
+  </EntityType>
+  <EntityType Name="Yetki">
+    <Key>
+      <PropertyRef Name="yetkiId" />
+    </Key>
+    <Property Name="yetkiId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="yetki1" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="silindi" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Kullanici" Relationship="TShitModel.FK_Kullanici_Yetki" FromRole="Yetki" ToRole="Kullanici" />
+  </EntityType>
+  <Association Name="FK_Kullanici_Yetki">
+    <End Role="Yetki" Type="TShitModel.Yetki" Multiplicity="1" />
+    <End Role="Kullanici" Type="TShitModel.Kullanici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Yetki">
+        <PropertyRef Name="yetkiId" />
+      </Principal>
+      <Dependent Role="Kullanici">
+        <PropertyRef Name="yetkiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Satis_Kullanici">
+    <End Role="Kullanici" Type="TShitModel.Kullanici" Multiplicity="1" />
+    <End Role="Satis" Type="TShitModel.Satis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanici">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Satis">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Satis_Urunler">
+    <End Role="Urunler" Type="TShitModel.Urunler" Multiplicity="1" />
+    <End Role="Satis" Type="TShitModel.Satis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urunler">
+        <PropertyRef Name="urunId" />
+      </Principal>
+      <Dependent Role="Satis">
+        <PropertyRef Name="urunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

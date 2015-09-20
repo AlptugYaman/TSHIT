@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TShitModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="TShitModelStoreContainer">
+          <EntitySet Name="Kullanici" EntityType="TShitModel.Store.Kullanici" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Satis" EntityType="TShitModel.Store.Satis" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Urunler" EntityType="TShitModel.Store.Urunler" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Yetki" EntityType="TShitModel.Store.Yetki" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Kullanici_Yetki" Association="TShitModel.Store.FK_Kullanici_Yetki">
+            <End Role="Yetki" EntitySet="Yetki" />
+            <End Role="Kullanici" EntitySet="Kullanici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Satis_Kullanici" Association="TShitModel.Store.FK_Satis_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Satis" EntitySet="Satis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Satis_Urunler" Association="TShitModel.Store.FK_Satis_Urunler">
+            <End Role="Urunler" EntitySet="Urunler" />
+            <End Role="Satis" EntitySet="Satis" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="adsoyad" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="kullaniciadi" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="sifre" Type="varchar" Nullable="false" MaxLength="12" />
+          <Property Name="yetkiId" Type="int" Nullable="false" />
+          <Property Name="il" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="ilce" Type="varchar" MaxLength="20" />
+          <Property Name="adres" Type="nvarchar(max)" />
+          <Property Name="email" Type="nvarchar" MaxLength="150" />
+          <Property Name="telefon" Type="nvarchar" MaxLength="12" />
+          <Property Name="silindi" Type="bit" />
+        </EntityType>
+        <EntityType Name="Satis">
+          <Key>
+            <PropertyRef Name="satisId" />
+          </Key>
+          <Property Name="satisId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="urunId" Type="int" Nullable="false" />
+          <Property Name="tarih" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Urunler">
+          <Key>
+            <PropertyRef Name="urunId" />
+          </Key>
+          <Property Name="urunId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="urunadi" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="urunkategori" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="cinsiyet" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="adet" Type="int" Nullable="false" />
+          <Property Name="birimfiyat" Type="money" Nullable="false" />
+          <Property Name="beden" Type="varchar" Nullable="false" MaxLength="5" />
+          <Property Name="resimyolu1" Type="varchar" MaxLength="50" />
+          <Property Name="resimyolu2" Type="varchar" MaxLength="50" />
+          <Property Name="urunbilgisi" Type="varchar(max)" />
+          <Property Name="silindi" Type="bit" />
+        </EntityType>
+        <EntityType Name="Yetki">
+          <Key>
+            <PropertyRef Name="yetkiId" />
+          </Key>
+          <Property Name="yetkiId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="yetki" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="silindi" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Kullanici_Yetki">
+          <End Role="Yetki" Type="TShitModel.Store.Yetki" Multiplicity="1" />
+          <End Role="Kullanici" Type="TShitModel.Store.Kullanici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Yetki">
+              <PropertyRef Name="yetkiId" />
+            </Principal>
+            <Dependent Role="Kullanici">
+              <PropertyRef Name="yetkiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Satis_Kullanici">
+          <End Role="Kullanici" Type="TShitModel.Store.Kullanici" Multiplicity="1" />
+          <End Role="Satis" Type="TShitModel.Store.Satis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Satis">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Satis_Urunler">
+          <End Role="Urunler" Type="TShitModel.Store.Urunler" Multiplicity="1" />
+          <End Role="Satis" Type="TShitModel.Store.Satis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urunler">
+              <PropertyRef Name="urunId" />
+            </Principal>
+            <Dependent Role="Satis">
+              <PropertyRef Name="urunId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TShitModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TShitEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Kullanici" EntityType="TShitModel.Kullanici" />
+          <EntitySet Name="Satis" EntityType="TShitModel.Satis" />
+          <EntitySet Name="Urunler" EntityType="TShitModel.Urunler" />
+          <EntitySet Name="Yetki" EntityType="TShitModel.Yetki" />
+          <AssociationSet Name="FK_Kullanici_Yetki" Association="TShitModel.FK_Kullanici_Yetki">
+            <End Role="Yetki" EntitySet="Yetki" />
+            <End Role="Kullanici" EntitySet="Kullanici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Satis_Kullanici" Association="TShitModel.FK_Satis_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Satis" EntitySet="Satis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Satis_Urunler" Association="TShitModel.FK_Satis_Urunler">
+            <End Role="Urunler" EntitySet="Urunler" />
+            <End Role="Satis" EntitySet="Satis" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="adsoyad" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="kullaniciadi" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="sifre" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="false" />
+          <Property Name="yetkiId" Type="Int32" Nullable="false" />
+          <Property Name="il" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="ilce" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="adres" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="telefon" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="silindi" Type="Boolean" />
+          <NavigationProperty Name="Yetki" Relationship="TShitModel.FK_Kullanici_Yetki" FromRole="Kullanici" ToRole="Yetki" />
+          <NavigationProperty Name="Satis" Relationship="TShitModel.FK_Satis_Kullanici" FromRole="Kullanici" ToRole="Satis" />
+        </EntityType>
+        <EntityType Name="Satis">
+          <Key>
+            <PropertyRef Name="satisId" />
+          </Key>
+          <Property Name="satisId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="urunId" Type="Int32" Nullable="false" />
+          <Property Name="tarih" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Kullanici" Relationship="TShitModel.FK_Satis_Kullanici" FromRole="Satis" ToRole="Kullanici" />
+          <NavigationProperty Name="Urunler" Relationship="TShitModel.FK_Satis_Urunler" FromRole="Satis" ToRole="Urunler" />
+        </EntityType>
+        <EntityType Name="Urunler">
+          <Key>
+            <PropertyRef Name="urunId" />
+          </Key>
+          <Property Name="urunId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="urunadi" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="urunkategori" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="cinsiyet" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="adet" Type="Int32" Nullable="false" />
+          <Property Name="birimfiyat" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="beden" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
+          <Property Name="resimyolu1" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="resimyolu2" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="urunbilgisi" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="silindi" Type="Boolean" />
+          <NavigationProperty Name="Satis" Relationship="TShitModel.FK_Satis_Urunler" FromRole="Urunler" ToRole="Satis" />
+        </EntityType>
+        <EntityType Name="Yetki">
+          <Key>
+            <PropertyRef Name="yetkiId" />
+          </Key>
+          <Property Name="yetkiId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="yetki1" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="silindi" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Kullanici" Relationship="TShitModel.FK_Kullanici_Yetki" FromRole="Yetki" ToRole="Kullanici" />
+        </EntityType>
+        <Association Name="FK_Kullanici_Yetki">
+          <End Role="Yetki" Type="TShitModel.Yetki" Multiplicity="1" />
+          <End Role="Kullanici" Type="TShitModel.Kullanici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Yetki">
+              <PropertyRef Name="yetkiId" />
+            </Principal>
+            <Dependent Role="Kullanici">
+              <PropertyRef Name="yetkiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Satis_Kullanici">
+          <End Role="Kullanici" Type="TShitModel.Kullanici" Multiplicity="1" />
+          <End Role="Satis" Type="TShitModel.Satis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Satis">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Satis_Urunler">
+          <End Role="Urunler" Type="TShitModel.Urunler" Multiplicity="1" />
+          <End Role="Satis" Type="TShitModel.Satis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urunler">
+              <PropertyRef Name="urunId" />
+            </Principal>
+            <Dependent Role="Satis">
+              <PropertyRef Name="urunId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TShitModelStoreContainer" CdmEntityContainer="TShitEntities">
+          <EntitySetMapping Name="Kullanici">
+            <EntityTypeMapping TypeName="TShitModel.Kullanici">
+              <MappingFragment StoreEntitySet="Kullanici">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="adsoyad" ColumnName="adsoyad" />
+                <ScalarProperty Name="kullaniciadi" ColumnName="kullaniciadi" />
+                <ScalarProperty Name="sifre" ColumnName="sifre" />
+                <ScalarProperty Name="yetkiId" ColumnName="yetkiId" />
+                <ScalarProperty Name="il" ColumnName="il" />
+                <ScalarProperty Name="ilce" ColumnName="ilce" />
+                <ScalarProperty Name="adres" ColumnName="adres" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="silindi" ColumnName="silindi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Satis">
+            <EntityTypeMapping TypeName="TShitModel.Satis">
+              <MappingFragment StoreEntitySet="Satis">
+                <ScalarProperty Name="satisId" ColumnName="satisId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="urunId" ColumnName="urunId" />
+                <ScalarProperty Name="tarih" ColumnName="tarih" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Urunler">
+            <EntityTypeMapping TypeName="TShitModel.Urunler">
+              <MappingFragment StoreEntitySet="Urunler">
+                <ScalarProperty Name="urunId" ColumnName="urunId" />
+                <ScalarProperty Name="urunadi" ColumnName="urunadi" />
+                <ScalarProperty Name="urunkategori" ColumnName="urunkategori" />
+                <ScalarProperty Name="cinsiyet" ColumnName="cinsiyet" />
+                <ScalarProperty Name="adet" ColumnName="adet" />
+                <ScalarProperty Name="birimfiyat" ColumnName="birimfiyat" />
+                <ScalarProperty Name="beden" ColumnName="beden" />
+                <ScalarProperty Name="resimyolu1" ColumnName="resimyolu1" />
+                <ScalarProperty Name="resimyolu2" ColumnName="resimyolu2" />
+                <ScalarProperty Name="urunbilgisi" ColumnName="urunbilgisi" />
+                <ScalarProperty Name="silindi" ColumnName="silindi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yetki">
+            <EntityTypeMapping TypeName="TShitModel.Yetki">
+              <MappingFragment StoreEntitySet="Yetki">
+                <ScalarProperty Name="yetkiId" ColumnName="yetkiId" />
+                <ScalarProperty Name="yetki1" ColumnName="yetki" />
+                <ScalarProperty Name="silindi" ColumnName="silindi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,67 @@
+C:\Users\ASUS\Desktop\Yazılım\WEB PROJE\TISHT\TISHT\bin\TISHT.dll
+C:\Users\ASUS\Desktop\Yazılım\WEB PROJE\TISHT\TISHT\bin\TISHT.pdb
+C:\Users\ASUS\Desktop\Yazılım\WEB PROJE\TISHT\TISHT\obj\Debug\TISHT.csprojResolveAssemblyReference.cache
+C:\Users\ASUS\Desktop\Yazılım\WEB PROJE\TISHT\TISHT\obj\Debug\TISHT.dll
+C:\Users\ASUS\Desktop\Yazılım\WEB PROJE\TISHT\TISHT\obj\Debug\TISHT.pdb
+C:\Users\ASUS\Desktop\WEB PROJE\TISHT\TISHT\bin\TISHT.dll
+C:\Users\ASUS\Desktop\WEB PROJE\TISHT\TISHT\bin\TISHT.pdb
+C:\Users\ASUS\Desktop\WEB PROJE\TISHT\TISHT\obj\Debug\TISHT.csprojResolveAssemblyReference.cache
+C:\Users\ASUS\Desktop\WEB PROJE\TISHT\TISHT\obj\Debug\TISHT.dll
+C:\Users\ASUS\Desktop\WEB PROJE\TISHT\TISHT\obj\Debug\TISHT.pdb
+D:\ \070715 TSHIT\TISHT\bin\TISHT.dll
+D:\ \070715 TSHIT\TISHT\bin\TISHT.pdb
+D:\ \070715 TSHIT\TISHT\obj\Debug\TISHT.csprojResolveAssemblyReference.cache
+D:\ \070715 TSHIT\TISHT\obj\Debug\TISHT.dll
+D:\ \070715 TSHIT\TISHT\obj\Debug\TISHT.pdb
+C:\Users\ASUS\Desktop\0807\TISHT\bin\TISHT.dll
+C:\Users\ASUS\Desktop\0807\TISHT\bin\TISHT.pdb
+C:\Users\ASUS\Desktop\0807\TISHT\obj\Debug\TISHT.csprojResolveAssemblyReference.cache
+C:\Users\ASUS\Desktop\0807\TISHT\obj\Debug\TISHT.dll
+C:\Users\ASUS\Desktop\0807\TISHT\obj\Debug\TISHT.pdb
+C:\Users\HISection-2\Desktop\0807\TISHT\bin\TISHT.dll
+C:\Users\HISection-2\Desktop\0807\TISHT\bin\TISHT.pdb
+C:\Users\HISection-2\Desktop\0807\TISHT\obj\Debug\TISHT.csprojResolveAssemblyReference.cache
+C:\Users\HISection-2\Desktop\0807\TISHT\obj\Debug\TISHT.dll
+C:\Users\HISection-2\Desktop\0807\TISHT\obj\Debug\TISHT.pdb
+C:\Users\ASUS\Desktop\0907\TISHT\bin\TISHT.dll
+C:\Users\ASUS\Desktop\0907\TISHT\bin\TISHT.pdb
+C:\Users\ASUS\Desktop\0907\TISHT\bin\EntityFramework.dll
+C:\Users\ASUS\Desktop\0907\TISHT\bin\EntityFramework.xml
+C:\Users\ASUS\Desktop\0907\TISHT\obj\Debug\TISHT.csprojResolveAssemblyReference.cache
+C:\Users\ASUS\Desktop\0907\TISHT\obj\Debug\TISHT.dll
+C:\Users\ASUS\Desktop\0907\TISHT\obj\Debug\TISHT.pdb
+C:\Users\ASUS\Desktop\1307\TISHT\bin\TISHT.dll
+C:\Users\ASUS\Desktop\1307\TISHT\bin\TISHT.pdb
+C:\Users\ASUS\Desktop\1307\TISHT\bin\EntityFramework.dll
+C:\Users\ASUS\Desktop\1307\TISHT\bin\EntityFramework.xml
+C:\Users\ASUS\Desktop\1307\TISHT\obj\Debug\TISHT.csprojResolveAssemblyReference.cache
+C:\Users\ASUS\Desktop\1307\TISHT\obj\Debug\TISHT.dll
+C:\Users\ASUS\Desktop\1307\TISHT\obj\Debug\TISHT.pdb
+C:\Users\ASUS\Desktop\1407\TISHT\bin\TISHT.dll
+C:\Users\ASUS\Desktop\1407\TISHT\bin\TISHT.pdb
+C:\Users\ASUS\Desktop\1407\TISHT\bin\EntityFramework.dll
+C:\Users\ASUS\Desktop\1407\TISHT\bin\EntityFramework.xml
+C:\Users\ASUS\Desktop\1407\TISHT\obj\Debug\TISHT.csprojResolveAssemblyReference.cache
+C:\Users\ASUS\Desktop\1407\TISHT\obj\Debug\TISHT.dll
+C:\Users\ASUS\Desktop\1407\TISHT\obj\Debug\TISHT.pdb
+C:\Users\ASUS\Desktop\1507\TISHT\bin\TISHT.dll
+C:\Users\ASUS\Desktop\1507\TISHT\bin\TISHT.pdb
+C:\Users\ASUS\Desktop\1507\TISHT\bin\EntityFramework.dll
+C:\Users\ASUS\Desktop\1507\TISHT\bin\EntityFramework.xml
+C:\Users\ASUS\Desktop\1507\TISHT\obj\Debug\TISHT.csprojResolveAssemblyReference.cache
+C:\Users\ASUS\Desktop\1507\TISHT\obj\Debug\TISHT.dll
+C:\Users\ASUS\Desktop\1507\TISHT\obj\Debug\TISHT.pdb
+C:\Users\ASUS\Desktop\1707\TISHT\bin\TISHT.dll
+C:\Users\ASUS\Desktop\1707\TISHT\bin\TISHT.pdb
+C:\Users\ASUS\Desktop\1707\TISHT\bin\EntityFramework.dll
+C:\Users\ASUS\Desktop\1707\TISHT\bin\EntityFramework.xml
+C:\Users\ASUS\Desktop\1707\TISHT\obj\Debug\TISHT.csprojResolveAssemblyReference.cache
+C:\Users\ASUS\Desktop\1707\TISHT\obj\Debug\TISHT.dll
+C:\Users\ASUS\Desktop\1707\TISHT\obj\Debug\TISHT.pdb
+C:\Users\ASUS\Desktop\2007\TISHT\bin\TISHT.dll
+C:\Users\ASUS\Desktop\2007\TISHT\bin\TISHT.pdb
+C:\Users\ASUS\Desktop\2007\TISHT\bin\EntityFramework.dll
+C:\Users\ASUS\Desktop\2007\TISHT\bin\EntityFramework.xml
+C:\Users\ASUS\Desktop\2007\TISHT\obj\Debug\TISHT.csprojResolveAssemblyReference.cache
+C:\Users\ASUS\Desktop\2007\TISHT\obj\Debug\TISHT.dll
+C:\Users\ASUS\Desktop\2007\TISHT\obj\Debug\TISHT.pdb
